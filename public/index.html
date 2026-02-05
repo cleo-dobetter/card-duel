@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Duel: Definitive Edition</title>
+    <link rel="stylesheet" href="style.css">
+<script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+
+<div id="ui-top">
+    <div style="color: #e74c3c;">AI HP: <span id="ai-hp">60</span></div>
+    <div>TURN: <span id="turn-count">1</span></div>
+    <div style="color: #2ecc71;">YOU HP: <span id="p-hp">60</span></div>
+</div>
+
+<div id="log-box">
+    <ul id="game-log"></ul>
+</div>
+
+<div class="msg" id="instruction">Select a card from your hand</div>
+<div id="selection-preview"></div>
+
+<div id="game-board">
+    <div class="row" id="ai-slots">
+        <div class="slot" id="ai-0"></div><div class="slot" id="ai-1"></div><div class="slot" id="ai-2"></div>
+    </div>
+    <div class="row" id="p-slots">
+        <div class="slot" id="p-0" onclick="clickSlot(0)"></div>
+        <div class="slot" id="p-1" onclick="clickSlot(1)"></div>
+        <div class="slot" id="p-2" onclick="clickSlot(2)"></div>
+    </div>
+</div>
+
+<div id="player-area">
+    <div id="hand"></div>
+    <div id="controls">
+        <button id="btn-discard" onclick="discardCard()">DISCARD (1/TURN)</button>
+        <button id="btn-end" onclick="endTurn()">END TURN</button>
+    </div>
+</div>
+
+<div id="lobby-screen">
+    <h2>Card Duel Online</h2>
+    <input type="text" id="room-code-input" placeholder="Enter Room Code (e.g. DUEL1)">
+    <button onclick="createRoom()">Create Room</button>
+    <button onclick="joinRoom()">Join Room</button>
+    <div id="lobby-status"></div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
